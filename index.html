@@ -3,70 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigieCred | Crédito Inteligente</title>
+    <title>DigieCred | Crédito Inteligente e Seguro</title>
     <style>
         :root {
-            --primary-green: #25d366;
-            --dark-bg: #0f1f17;
-            --card-bg: #182c22;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
+            --primary: #25d366;
+            --primary-dark: #1faa59;
+            --bg-dark: #0b1410;
+            --card-dark: #14261d;
+            --text-main: #ffffff;
+            --text-dim: #a0aab2;
         }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        .container { max-width: 500px; margin: auto; padding: 20px; padding-bottom: 100px; }
+        /* Navegação */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(11, 20, 16, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid #1a2e24;
+            z-index: 1000;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        nav a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
 
-        /* Estilo Fintech / Hero */
+        .container { max-width: 480px; margin: 0 auto; padding: 20px; padding-bottom: 120px; }
+
+        /* Header / Hero */
         .hero {
-            background: linear-gradient(135deg, #1faa59, #0d3b2e);
-            padding: 30px 20px;
-            border-radius: 24px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 40px 20px;
+            background: linear-gradient(180deg, var(--primary-dark) 0%, var(--bg-dark) 100%);
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 30px;
         }
-
-        .profile-container { margin-bottom: 15px; }
-        .profile-img {
-            width: 90px; height: 90px;
-            border-radius: 50%;
-            border: 3px solid var(--primary-green);
-            object-fit: cover;
-        }
-
         .badge-online {
-            background: rgba(37, 211, 102, 0.2);
-            color: var(--primary-green);
-            padding: 5px 12px;
+            background: rgba(37, 211, 102, 0.15);
+            color: var(--primary);
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
             display: inline-block;
+            margin-bottom: 15px;
+        }
+        .profile-img {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             margin-bottom: 10px;
         }
+        h1 { font-size: 28px; margin: 10px 0; }
+        .subheadline { color: #e0e0e0; font-size: 16px; margin-bottom: 25px; }
 
-        h1 { font-size: 24px; margin: 10px 0; }
-        .subheadline { font-size: 16px; opacity: 0.9; margin-bottom: 20px; }
+        /* Estilo de Seções e Cards */
+        section { margin-top: 40px; }
+        h2 { font-size: 20px; color: var(--primary); margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 12px; }
+        .card {
+            background: var(--card-dark);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #1d3529;
+            margin-bottom: 15px;
+        }
 
-        /* Botões */
-        .btn-main {
-            background: var(--primary-green);
-            color: #fff;
+        /* História */
+        .history-text { font-size: 14px; color: var(--text-dim); text-align: justify; }
+
+        /* Categorias Grid */
+        .grid-categories {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .cat-item {
+            background: #1d3529;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Depoimentos */
+        .testimonial-header { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+        .avatar-circle {
+            width: 32px; height: 32px;
+            background: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* Botão de Ação */
+        .cta-button {
+            background: var(--primary);
+            color: #000;
+            width: 100%;
             padding: 18px;
             border: none;
-            width: 100%;
-            border-radius: 14px;
-            font-size: 18px;
-            font-weight: bold;
+            border-radius: 16px;
+            font-size: 17px;
+            font-weight: 800;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: transform 0.2s;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
             animation: pulse 2s infinite;
         }
 
@@ -76,123 +136,142 @@
             100% { transform: scale(1); }
         }
 
-        /* Seções de Conteúdo */
-        .section-title { font-size: 18px; margin: 25px 0 15px; display: flex; align-items: center; gap: 10px; }
-        .box { background: var(--card-bg); padding: 20px; border-radius: 18px; margin-bottom: 20px; }
-
-        /* Como Funciona */
-        .step { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .step-number {
-            background: var(--primary-green);
-            width: 28px; height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* Simulação de Conversa */
-        .chat-bubble {
-            padding: 12px 16px;
-            border-radius: 15px;
-            margin-bottom: 10px;
-            max-width: 85%;
-            font-size: 14px;
-        }
-        .user { background: #34495e; align-self: flex-end; margin-left: auto; border-bottom-right-radius: 2px; }
-        .admin { background: #234d37; border-bottom-left-radius: 2px; }
-
-        /* Footer e Rodapé Fixo */
-        .footer-info { font-size: 12px; color: var(--text-gray); text-align: center; margin-top: 40px; }
-        .fixed-cta {
+        .fixed-footer {
             position: fixed; bottom: 0; left: 0; right: 0;
-            background: #12251c; padding: 15px;
-            border-top: 1px solid #1faa59;
-            z-index: 1000;
+            background: #0b1410; padding: 15px 20px;
+            border-top: 1px solid var(--primary-dark);
+            z-index: 1001;
         }
 
-        /* FAQ */
-        .faq-item { border-bottom: 1px solid #2a4135; padding: 10px 0; font-size: 14px; }
-        .faq-q { font-weight: bold; color: var(--primary-green); }
+        .footer-legal { font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 30px; }
+
+        iframe { border-radius: 15px; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header class="hero">
-        <span class="badge-online">● Atendimento online agora</span>
-        <div class="profile-container">
-            <img src="paulo-pro.jpg" alt="Paulo Henrique" class="profile-img"> </div>
-        <h1>Precisa de crédito rápido e seguro?</h1> <p class="subheadline">Análise de perfil personalizada com o Gestor Paulo Henrique.</p>
-        <button class="btn-main" onclick="copiarESalvar()">Copiar número e chamar no WhatsApp</button>
-    </header>
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#historia">História</a>
+        <a href="#servicos">Crédito</a>
+        <a href="#feedback">Clientes</a>
+    </nav>
 
-    <h2 class="section-title">Como funciona</h2>
-    <div class="box">
-        <div class="step">
-            <div class="step-number">1</div>
-            <p>Copie o número oficial abaixo</p>
-        </div>
-        <div class="step">
-            <div class="step-number">2</div>
-            <p>Salve o contato em sua agenda</p>
-        </div>
-        <div class="step">
-            <div class="step-number">3</div>
-            <p>Envie um "Olá" no WhatsApp</p>
-        </div>
+    <div class="container" id="home">
+        <header class="hero">
+            <span class="badge-online">● Atendimento online agora</span>
+            <div>
+                <img src="paulo-pro.jpg" alt="Paulo Henrique" class="profile-img">
+            </div>
+            <h1>DigieCred</h1>
+            <p class="subheadline">Soluções inteligentes de crédito sob medida para o seu perfil.</p>
+            <button class="cta-button" onclick="acaoConversao()">COPIAR NÚMERO E CHAMAR</button>
+        </header>
+
+        <section id="historia">
+            <h2>Nossa História</h2>
+            <div class="card">
+                <p class="history-text">
+                    A <b>DigieCred</b>, marca da <b>Infinicred Crédito Assessoria LTDA</b>, nasceu com a missão de transformar o mercado financeiro através da transparência. Sediada na <b>Av. Paulista, 1471</b>, unimos a solidez institucional com a agilidade do digital. Sob a liderança de <b>Paulo Henrique</b>, nosso compromisso é oferecer crédito justo, sem letras miúdas e, principalmente, <b>sem taxas antecipadas</b>. Nosso foco é você, seja você CLT, autônomo ou empresário.
+                </p>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <h2>Público Atendido</h2>
+            <div class="grid-categories">
+                <div class="cat-item">💰 Empregados CLT</div>
+                <div class="cat-item">🚜 Autônomos</div>
+                <div class="cat-item">🏢 Empresas (CNPJ)</div>
+                <div class="cat-item">⚖️ Negativados*</div>
+                <div class="cat-item">💳 FGTS</div>
+                <div class="cat-item">🏠 Imóvel Garantia</div>
+            </div>
+            <p style="font-size: 11px; color: var(--text-dim); margin-top: 10px; text-align: center;">*Sujeito a análise de perfil de crédito.</p>
+        </section>
+
+        <section id="feedback">
+            <h2>Depoimentos</h2>
+            
+            <div class="card">
+                <p class="history-text">"Como autônomo, tive o crédito negado em vários lugares. Na DigieCred, o Paulo me atendeu super bem e consegui o valor em 2 dias."</p>
+                <div class="testimonial-header">
+                    <div class="avatar-circle">RS</div>
+                    <span style="font-size: 13px; font-weight: bold;">Ricardo S. - Autônomo</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="history-text">"Muito seguro. O que mais gostei foi que não pediram nenhum depósito antecipado. Empresa muito séria."</p>
+                <div class="testimonial-header">
+                    <div class="avatar-circle">ML</div>
+                    <span style="font-size: 13px; font-weight: bold;">Mariana L. - CLT</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="history-text">"Atendimento rápido pelo WhatsApp. Fiz a simulação e no mesmo dia tive a resposta. Paulo Henrique foi muito profissional."</p>
+                <div class="testimonial-header">
+                    <div class="avatar-circle">JR</div>
+                    <span style="font-size: 13px; font-weight: bold;">José R. - Empresário</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="history-text">"Pensei que por estar negativada não conseguiria, mas eles analisaram meu caso e deu tudo certo. Recomendo muito!"</p>
+                <div class="testimonial-header">
+                    <div class="avatar-circle">FM</div>
+                    <span style="font-size: 13px; font-weight: bold;">Fernanda M. - Aposentada</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="history-text">"Antecipei meu FGTS com eles. Processo digital e sem burocracia. O número é fácil de salvar e o retorno é rápido."</p>
+                <div class="testimonial-header">
+                    <div class="avatar-circle">JT</div>
+                    <span style="font-size: 13px; font-weight: bold;">Juliana T. - CLT</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="history-text">"Empresa com endereço fixo na Paulista me deu muita confiança. Transmite muita credibilidade no atendimento."</p>
+                <div class="testimonial-header">
+                    <div class="avatar-circle">CA</div>
+                    <span style="font-size: 13px; font-weight: bold;">Carlos A. - Servidor</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="local">
+            <h2>Onde Estamos</h2>
+            <div class="card">
+                <p style="font-size: 13px;"><b>Av. Paulista, 1471</b> - Bela Vista, São Paulo/SP</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197475150242!2d-46.65867022375836!3d-23.56134966118671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da5a9099%3A0x6295540e53a77413!2sAv.%20Paulista%2C%201471%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-200!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <footer class="footer-legal">
+            <p>
+                <b>INFINICRED CRÉDITO ASSESSORIA LTDA</b><br>
+                CNPJ: 46.599.921/0001-13<br>
+                © 2026 DigieCred. Todos os direitos reservados.
+            </p>
+            <p style="font-size: 10px;">A DigieCred não solicita depósitos antecipados. O crédito está sujeito a análise de perfil e políticas internas.</p>
+        </footer>
     </div>
 
-    <h2 class="section-title">Público Atendido</h2>
-    <div class="box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 14px;">
-        <div>✓ Aposentados</div>
-        <div>✓ Autônomos</div>
-        <div>✓ Servidores</div>
-        <div>✓ Negativados*</div>
+    <div class="fixed-footer">
+        <button class="cta-button" style="margin: 0;" onclick="acaoConversao()">FALAR COM GESTOR NO WHATSAPP</button>
     </div>
 
-    <h2 class="section-title">Atendimento Humano</h2>
-    <div class="box" style="display: flex; flex-direction: column;">
-        <div class="chat-bubble user">Olá, gostaria de fazer uma simulação de crédito.</div>
-        <div class="chat-bubble admin">Com certeza! Sou o Paulo. Qual o valor aproximado que você busca? (Resposta em até 30 min)</div>
-    </div>
-
-    <h2 class="section-title">Dúvidas Frequentes</h2>
-    <div class="box">
-        <div class="faq-item">
-            <div class="faq-q">Tem taxa antecipada?</div>
-            <div class="faq-p">Não. Nunca solicitamos pagamentos antecipados para liberação de crédito.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-q">Quem pode solicitar?</div>
-            <div class="faq-p">CLT, autônomos e empresários mediante análise de perfil.</div>
-        </div>
-    </div>
-
-    <div class="footer-info">
-        <p><strong>INFINICRED CRÉDITO ASSESSORIA LTDA</strong><br>
-        CNPJ: 46.599.921/0001-13<br>
-        Av. Paulista, 1471 - Bela Vista - São Paulo/SP</p>
-        <p style="font-size: 10px;">*Aprovação sujeita a análise de crédito. Não cobramos taxas antecipadas.</p>
-    </div>
-</div>
-
-<div class="fixed-cta">
-    <button class="btn-main" onclick="copiarESalvar()">Falar no WhatsApp</button>
-</div>
-
-<script>
-    function copiarESalvar() {
-        const numero = "(61) 99627-7039"; // [cite: 47]
-        navigator.clipboard.writeText(numero).then(() => {
-            alert("Número " + numero + " copiado! Agora salve nos seus contatos e nos chame no WhatsApp.");
-            // Aqui você pode adicionar o disparo do Pixel do Facebook
-            console.log("Evento: Lead disparado");
-        });
-    }
-</script>
+    <script>
+        function acaoConversao() {
+            const numero = "(61) 99627-7039"; // 
+            navigator.clipboard.writeText(numero).then(() => {
+                alert("Número " + numero + " copiado!\n\nPassos:\n1. Abra seu WhatsApp\n2. Salve o contato 'Paulo DigieCred'\n3. Inicie sua simulação.");
+            });
+        }
+    </script>
 
 </body>
 </html>
