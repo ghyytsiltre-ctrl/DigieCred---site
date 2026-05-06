@@ -5,99 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DigieCred</title>
 
-<!-- PIXEL -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', 'SEU_PIXEL_AQUI');
-fbq('track', 'PageView');
-</script>
-
 <style>
 body {
-  margin: 0;
+  margin:0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #0f1f17;
-  color: #fff;
+  background:#0f1f17;
+  color:#fff;
 }
 
 .container {
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
+  max-width:500px;
+  margin:auto;
+  padding:20px;
 }
 
 .hero {
-  background: linear-gradient(135deg, #1faa59, #0d3b2e);
-  padding: 25px;
-  border-radius: 16px;
-  text-align: center;
+  background: linear-gradient(135deg,#1faa59,#0d3b2e);
+  padding:25px;
+  border-radius:16px;
+  text-align:center;
 }
 
 .profile img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 3px solid #fff;
+  width:85px;
+  height:85px;
+  border-radius:50%;
+  border:3px solid #fff;
 }
 
 .btn {
-  background: #25d366;
-  color: #fff;
-  padding: 15px;
-  border: none;
-  width: 100%;
-  border-radius: 10px;
-  font-size: 16px;
-  margin-top: 15px;
-  font-weight: bold;
+  background:#25d366;
+  color:#fff;
+  padding:15px;
+  border:none;
+  width:100%;
+  border-radius:10px;
+  font-size:16px;
+  margin-top:15px;
+  font-weight:bold;
+  cursor:pointer;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {transform:scale(1);}
+  50% {transform:scale(1.03);}
+  100% {transform:scale(1);}
 }
 
 .box {
-  background: #182c22;
-  padding: 18px;
-  border-radius: 14px;
-  margin-top: 15px;
+  background:#182c22;
+  padding:18px;
+  border-radius:14px;
+  margin-top:15px;
 }
 
 .badge {
-  background: rgba(255,255,255,0.1);
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 13px;
-  margin-top: 8px;
+  background:rgba(255,255,255,0.1);
+  padding:8px;
+  border-radius:8px;
+  font-size:13px;
+  margin-top:8px;
 }
 
-.chat {
-  background: #222;
-  padding: 10px;
-  border-radius: 10px;
-}
+.chat {background:#222;padding:10px;border-radius:10px;}
+.msg {background:#fff;color:#000;padding:8px;border-radius:8px;margin-top:5px;}
 
-.msg {
-  background: #fff;
-  color: #000;
-  padding: 8px;
-  border-radius: 8px;
-  margin-top: 5px;
-}
+.review {display:flex;gap:10px;margin-top:10px;}
+.review img {width:45px;height:45px;border-radius:50%;}
 
 .fixed-btn {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: #25d366;
-  padding: 15px;
-  text-align: center;
-  font-weight: bold;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#25d366;
+  padding:15px;
+  text-align:center;
+  font-weight:bold;
+  cursor:pointer;
 }
+
+iframe {width:100%;height:220px;border:none;border-radius:10px;}
 </style>
 </head>
 
@@ -105,9 +93,10 @@ body {
 
 <div class="container">
 
+<!-- HERO -->
 <div class="hero">
 <h2>Precisa de crédito?</h2>
-<p>A DigieCred analisa seu perfil e te orienta com segurança</p>
+<p>Analise seu perfil com segurança e sem compromisso</p>
 
 <div class="profile">
 <img src="paulo-pro.jpg">
@@ -115,15 +104,16 @@ body {
 <p style="font-size:13px;">Gestor DigieCred</p>
 </div>
 
-<button class="btn" onclick="copiarNumero(); fbq('track','Lead');">
+<button class="btn" onclick="copiarNumero()">
 📲 Copiar número e falar agora
 </button>
 
 <div class="badge">🟢 Atendimento online agora</div>
 <div class="badge">⏱ Resposta em até 30 minutos</div>
-
+<div class="badge">🔒 Empresa registrada</div>
 </div>
 
+<!-- COMO FUNCIONA -->
 <div class="box">
 <h3>Como funciona</h3>
 <p>1️⃣ Copie o número</p>
@@ -131,14 +121,34 @@ body {
 <p>3️⃣ Fale no WhatsApp</p>
 </div>
 
+<!-- PROVA SOCIAL -->
+<div class="box">
+<h3>Depoimentos</h3>
+
+<div class="review">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<p><strong>Carlos M.</strong><br>Atendimento rápido e claro.</p>
+</div>
+
+<div class="review">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<p><strong>Juliana R.</strong><br>Me explicaram tudo com transparência.</p>
+</div>
+
+</div>
+
+<!-- SIMULAÇÃO -->
 <div class="box">
 <h3>Simulação real</h3>
 <div class="chat">
 <div class="msg"><strong>Cliente:</strong> Tenho nome negativado</div>
 <div class="msg"><strong>DigieCred:</strong> Podemos analisar seu caso</div>
+<div class="msg"><strong>Cliente:</strong> Demora?</div>
+<div class="msg"><strong>DigieCred:</strong> Até 30 minutos</div>
 </div>
 </div>
 
+<!-- PARA QUEM É -->
 <div class="box">
 <h3>Para quem é</h3>
 <p>✔ CLT</p>
@@ -147,16 +157,38 @@ body {
 <p>✔ Negativados</p>
 </div>
 
+<!-- FAQ -->
 <div class="box">
-<h3>Transparência</h3>
-<p>✔ Sem taxa antecipada</p>
-<p>✔ Custos cartoriais por conta do cliente</p>
+<h3>Perguntas frequentes</h3>
+<p><strong>Precisa pagar algo antes?</strong><br>Não cobramos taxa antecipada.</p>
+<p><strong>É garantido?</strong><br>Depende da análise.</p>
+<p><strong>Demora?</strong><br>Até 30 minutos.</p>
+</div>
+
+<!-- MAPA -->
+<div class="box">
+<h3>Nosso escritório</h3>
+<iframe src="https://maps.google.com/maps?q=Av%20Paulista%201471%20Sao%20Paulo&t=&z=15&output=embed"></iframe>
+</div>
+
+<!-- CTA FINAL -->
+<div class="box">
+<h3>Fale agora com a DigieCred</h3>
+<button class="btn" onclick="copiarNumero()">
+📲 Copiar número e começar agora
+</button>
+</div>
+
+<div style="text-align:center;font-size:12px;margin-top:20px;">
+INFINICRED CRÉDITO ASSESSORIA LTDA<br>
+CNPJ: 46.599.921/0001-13<br>
+São Paulo/SP
 </div>
 
 </div>
 
-<div class="fixed-btn" onclick="copiarNumero(); fbq('track','Lead');">
-📲 Copiar número e falar com a DigieCred
+<div class="fixed-btn" onclick="copiarNumero()">
+📲 Falar agora no WhatsApp
 </div>
 
 <script>
