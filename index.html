@@ -1,277 +1,214 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigieCred | Crédito Inteligente e Seguro</title>
-    <style>
-        :root {
-            --primary: #25d366;
-            --primary-dark: #1faa59;
-            --bg-dark: #0b1410;
-            --card-dark: #14261d;
-            --text-main: #ffffff;
-            --text-dim: #a0aab2;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigieCred</title>
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+<style>
+body{margin:0;font-family:-apple-system;background:#0f1f17;color:#fff}
+.container{max-width:500px;margin:auto;padding:20px}
+.hero{background:linear-gradient(135deg,#1faa59,#0d3b2e);padding:25px;border-radius:16px;text-align:center}
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+.profile img{width:85px;height:85px;border-radius:50%;border:3px solid #fff}
 
-        /* Navegação */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(11, 20, 16, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px;
-            display: flex;
-            justify-content: space-around;
-            border-bottom: 1px solid #1a2e24;
-            z-index: 1000;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        nav a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
+.btn{
+background:#25d366;
+padding:15px;
+width:100%;
+border:none;
+border-radius:10px;
+color:#fff;
+font-weight:bold;
+font-size:16px;
+margin-top:15px;
+cursor:pointer;
+animation:pulse 1.5s infinite;
+}
 
-        .container { max-width: 480px; margin: 0 auto; padding: 20px; padding-bottom: 120px; }
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.04)}
+100%{transform:scale(1)}
+}
 
-        /* Header / Hero */
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(180deg, var(--primary-dark) 0%, var(--bg-dark) 100%);
-            border-radius: 0 0 40px 40px;
-            margin-bottom: 30px;
-        }
-        .badge-online {
-            background: rgba(37, 211, 102, 0.15);
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        .profile-img {
-            width: 100px; height: 100px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            margin-bottom: 10px;
-        }
-        h1 { font-size: 28px; margin: 10px 0; }
-        .subheadline { color: #e0e0e0; font-size: 16px; margin-bottom: 25px; }
+.box{background:#182c22;padding:18px;border-radius:14px;margin-top:15px}
+.badge{background:rgba(255,255,255,0.1);padding:8px;border-radius:8px;font-size:13px;margin-top:8px}
 
-        /* Estilo de Seções e Cards */
-        section { margin-top: 40px; }
-        h2 { font-size: 20px; color: var(--primary); margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 12px; }
-        .card {
-            background: var(--card-dark);
-            padding: 20px;
-            border-radius: 20px;
-            border: 1px solid #1d3529;
-            margin-bottom: 15px;
-        }
+.chat{background:#222;padding:10px;border-radius:10px}
+.msg{background:#fff;color:#000;padding:8px;border-radius:8px;margin-top:5px}
 
-        /* História */
-        .history-text { font-size: 14px; color: var(--text-dim); text-align: justify; }
+.fixed-btn{position:fixed;bottom:0;width:100%;background:#25d366;padding:15px;text-align:center;font-weight:bold;cursor:pointer}
 
-        /* Categorias Grid */
-        .grid-categories {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .cat-item {
-            background: #1d3529;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: 600;
-        }
+.review{display:flex;gap:10px;margin-top:10px}
+.review img{width:45px;height:45px;border-radius:50%}
 
-        /* Depoimentos */
-        .testimonial-header { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-        .avatar-circle {
-            width: 32px; height: 32px;
-            background: var(--primary-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 12px;
-        }
+.tooltip-container{position:relative}
+.tooltip{
+position:absolute;
+bottom:70px;
+left:50%;
+transform:translateX(-50%);
+background:#25d366;
+padding:10px;
+border-radius:10px;
+font-size:13px;
+width:230px;
+text-align:center;
+}
 
-        /* Botão de Ação */
-        .cta-button {
-            background: var(--primary);
-            color: #000;
-            width: 100%;
-            padding: 18px;
-            border: none;
-            border-radius: 16px;
-            font-size: 17px;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-            animation: pulse 2s infinite;
-        }
+/* contador */
+.counter{
+font-size:13px;
+margin-top:10px;
+opacity:0.8;
+}
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        .fixed-footer {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: #0b1410; padding: 15px 20px;
-            border-top: 1px solid var(--primary-dark);
-            z-index: 1001;
-        }
-
-        .footer-legal { font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 30px; }
-
-        iframe { border-radius: 15px; margin-top: 10px; }
-    </style>
+/* pergunta */
+.quiz button{
+width:100%;
+margin-top:8px;
+padding:10px;
+border-radius:8px;
+border:none;
+cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <a href="#home">Início</a>
-        <a href="#historia">História</a>
-        <a href="#servicos">Crédito</a>
-        <a href="#feedback">Clientes</a>
-    </nav>
+<div class="container">
 
-    <div class="container" id="home">
-        <header class="hero">
-            <span class="badge-online">● Atendimento online agora</span>
-            <div>
-                <img src="paulo-pro.jpg" alt="Paulo Henrique" class="profile-img">
-            </div>
-            <h1>DigieCred</h1>
-            <p class="subheadline">Soluções inteligentes de crédito sob medida para o seu perfil.</p>
-            <button class="cta-button" onclick="acaoConversao()">COPIAR NÚMERO E CHAMAR</button>
-        </header>
+<!-- HERO -->
+<div class="hero">
+<h2>Precisa de crédito com segurança?</h2>
+<p>Analise seu perfil e descubra a melhor opção disponível</p>
 
-        <section id="historia">
-            <h2>Nossa História</h2>
-            <div class="card">
-                <p class="history-text">
-                    A <b>DigieCred</b>, marca da <b>Infinicred Crédito Assessoria LTDA</b>, nasceu com a missão de transformar o mercado financeiro através da transparência. Sediada na <b>Av. Paulista, 1471</b>, unimos a solidez institucional com a agilidade do digital. Sob a liderança de <b>Paulo Henrique</b>, nosso compromisso é oferecer crédito justo, sem letras miúdas e, principalmente, <b>sem taxas antecipadas</b>. Nosso foco é você, seja você CLT, autônomo ou empresário.
-                </p>
-            </div>
-        </section>
+<div class="profile">
+<img src="paulo-pro.jpg">
+<p><strong>Paulo Henrique</strong></p>
+<p style="font-size:13px;">
+Especialista em análise de crédito personalizado
+</p>
+</div>
 
-        <section id="servicos">
-            <h2>Público Atendido</h2>
-            <div class="grid-categories">
-                <div class="cat-item">💰 Empregados CLT</div>
-                <div class="cat-item">🚜 Autônomos</div>
-                <div class="cat-item">🏢 Empresas (CNPJ)</div>
-                <div class="cat-item">⚖️ Negativados*</div>
-                <div class="cat-item">💳 FGTS</div>
-                <div class="cat-item">🏠 Imóvel Garantia</div>
-            </div>
-            <p style="font-size: 11px; color: var(--text-dim); margin-top: 10px; text-align: center;">*Sujeito a análise de perfil de crédito.</p>
-        </section>
+<div class="tooltip-container">
+<div class="tooltip">
+👇 Copie o número e fale direto no WhatsApp
+</div>
 
-        <section id="feedback">
-            <h2>Depoimentos</h2>
-            
-            <div class="card">
-                <p class="history-text">"Como autônomo, tive o crédito negado em vários lugares. Na DigieCred, o Paulo me atendeu super bem e consegui o valor em 2 dias."</p>
-                <div class="testimonial-header">
-                    <div class="avatar-circle">RS</div>
-                    <span style="font-size: 13px; font-weight: bold;">Ricardo S. - Autônomo</span>
-                </div>
-            </div>
+<button class="btn" onclick="copiarNumero()">
+📲 Copiar número e falar agora
+</button>
+</div>
 
-            <div class="card">
-                <p class="history-text">"Muito seguro. O que mais gostei foi que não pediram nenhum depósito antecipado. Empresa muito séria."</p>
-                <div class="testimonial-header">
-                    <div class="avatar-circle">ML</div>
-                    <span style="font-size: 13px; font-weight: bold;">Mariana L. - CLT</span>
-                </div>
-            </div>
+<div class="badge">🟢 Atendimento online agora</div>
+<div class="badge">⏱ Alta demanda hoje</div>
+<div class="badge">🔒 Empresa registrada</div>
 
-            <div class="card">
-                <p class="history-text">"Atendimento rápido pelo WhatsApp. Fiz a simulação e no mesmo dia tive a resposta. Paulo Henrique foi muito profissional."</p>
-                <div class="testimonial-header">
-                    <div class="avatar-circle">JR</div>
-                    <span style="font-size: 13px; font-weight: bold;">José R. - Empresário</span>
-                </div>
-            </div>
+<div class="counter" id="contador">
++ 12 pessoas analisando crédito agora
+</div>
 
-            <div class="card">
-                <p class="history-text">"Pensei que por estar negativada não conseguiria, mas eles analisaram meu caso e deu tudo certo. Recomendo muito!"</p>
-                <div class="testimonial-header">
-                    <div class="avatar-circle">FM</div>
-                    <span style="font-size: 13px; font-weight: bold;">Fernanda M. - Aposentada</span>
-                </div>
-            </div>
+</div>
 
-            <div class="card">
-                <p class="history-text">"Antecipei meu FGTS com eles. Processo digital e sem burocracia. O número é fácil de salvar e o retorno é rápido."</p>
-                <div class="testimonial-header">
-                    <div class="avatar-circle">JT</div>
-                    <span style="font-size: 13px; font-weight: bold;">Juliana T. - CLT</span>
-                </div>
-            </div>
+<!-- QUIZ -->
+<div class="box quiz">
+<h3>Antes de continuar...</h3>
+<p>Você possui renda atualmente?</p>
+<button onclick="resposta()">Sim</button>
+<button onclick="resposta()">Não</button>
+</div>
 
-            <div class="card">
-                <p class="history-text">"Empresa com endereço fixo na Paulista me deu muita confiança. Transmite muita credibilidade no atendimento."</p>
-                <div class="testimonial-header">
-                    <div class="avatar-circle">CA</div>
-                    <span style="font-size: 13px; font-weight: bold;">Carlos A. - Servidor</span>
-                </div>
-            </div>
-        </section>
+<!-- COMO FUNCIONA -->
+<div class="box">
+<h3>Como funciona</h3>
+<p>1️⃣ Copie o número</p>
+<p>2️⃣ Salve como DigieCred</p>
+<p>3️⃣ Fale no WhatsApp</p>
+</div>
 
-        <section id="local">
-            <h2>Onde Estamos</h2>
-            <div class="card">
-                <p style="font-size: 13px;"><b>Av. Paulista, 1471</b> - Bela Vista, São Paulo/SP</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197475150242!2d-46.65867022375836!3d-23.56134966118671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da5a9099%3A0x6295540e53a77413!2sAv.%20Paulista%2C%201471%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-200!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </section>
+<!-- PROVA SOCIAL -->
+<div class="box">
+<h3>Clientes atendidos</h3>
 
-        <footer class="footer-legal">
-            <p>
-                <b>INFINICRED CRÉDITO ASSESSORIA LTDA</b><br>
-                CNPJ: 46.599.921/0001-13<br>
-                © 2026 DigieCred. Todos os direitos reservados.
-            </p>
-            <p style="font-size: 10px;">A DigieCred não solicita depósitos antecipados. O crédito está sujeito a análise de perfil e políticas internas.</p>
-        </footer>
-    </div>
+<div class="review">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<p><strong>Carlos</strong><br>Me explicaram tudo, atendimento top</p>
+</div>
 
-    <div class="fixed-footer">
-        <button class="cta-button" style="margin: 0;" onclick="acaoConversao()">FALAR COM GESTOR NO WHATSAPP</button>
-    </div>
+<div class="review">
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+<p><strong>Juliana</strong><br>Consegui entender melhor meu caso</p>
+</div>
 
-    <script>
-        function acaoConversao() {
-            const numero = "(61) 99627-7039"; // 
-            navigator.clipboard.writeText(numero).then(() => {
-                alert("Número " + numero + " copiado!\n\nPassos:\n1. Abra seu WhatsApp\n2. Salve o contato 'Paulo DigieCred'\n3. Inicie sua simulação.");
-            });
-        }
-    </script>
+</div>
+
+<!-- SIMULAÇÃO -->
+<div class="box">
+<h3>Simulação real</h3>
+<div class="chat">
+<div class="msg"><strong>Cliente:</strong> Tenho nome negativado</div>
+<div class="msg"><strong>DigieCred:</strong> Podemos analisar</div>
+</div>
+</div>
+
+<!-- SEGURANÇA -->
+<div class="box">
+<h3>Transparência</h3>
+<p>✔ Sem taxa antecipada</p>
+<p>✔ Atendimento seguro</p>
+<p>✔ Processo claro e transparente</p>
+</div>
+
+<!-- FAQ -->
+<div class="box">
+<h3>Perguntas frequentes</h3>
+<p><strong>Tem garantia?</strong><br>Depende da análise</p>
+<p><strong>Demora?</strong><br>Até 30 minutos</p>
+</div>
+
+<!-- CTA FINAL -->
+<div class="box">
+<h3>Fale com a DigieCred</h3>
+<button class="btn" onclick="copiarNumero()">
+📲 Copiar número agora
+</button>
+</div>
+
+<div style="text-align:center;font-size:12px;margin-top:20px;">
+INFINICRED CREDITO ASSESSORIA LTDA<br>
+CNPJ: 46.599.921/0001-13
+</div>
+
+</div>
+
+<div class="fixed-btn" onclick="copiarNumero()">
+📲 Falar agora no WhatsApp
+</div>
+
+<script>
+function copiarNumero(){
+navigator.clipboard.writeText("(61) 99627-7039");
+alert("Número copiado! Salve e chame no WhatsApp.");
+}
+
+function resposta(){
+alert("Perfeito! Agora fale com um especialista.");
+}
+
+setTimeout(()=>{
+document.querySelectorAll(".tooltip").forEach(el=>el.style.display="none");
+},5000);
+
+// contador dinâmico
+setInterval(()=>{
+let num = Math.floor(Math.random()*10)+10;
+document.getElementById("contador").innerText = "+ " + num + " pessoas analisando crédito agora";
+},4000);
+
+</script>
 
 </body>
 </html>
