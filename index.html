@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>DigieCred - Simulação de Crédito</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- META PIXEL (SUBSTITUA PELO SEU ID) -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', 'SEU_PIXEL_AQUI');
+  fbq('track', 'PageView');
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #1e88e5;
+      font-size: 24px;
+    }
+
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .number {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #25d366;
+    }
+
+    .btn {
+      display: block;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      background: #1e88e5;
+      color: white;
+    }
+
+    .steps {
+      text-align: left;
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    .highlight {
+      background: #e3f2fd;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Simule seu crédito com segurança</h1>
+  <p>Atendimento exclusivo pelo WhatsApp - DigieCred</p>
+
+  <div class="box">
+    <p><strong>Para fazer sua simulação, siga os passos:</strong></p>
+
+    <div class="steps">
+      <p>1️⃣ Copie nosso número</p>
+      <p>2️⃣ Salve como <strong>DigieCred</strong></p>
+      <p>3️⃣ Abra o WhatsApp e nos chame</p>
+    </div>
+
+    <div class="number" id="numero">(61) 99627-7039</div>
+
+    <button class="btn" onclick="copiarNumero(); fbq('track', 'Lead');">
+      📋 Copiar número
+    </button>
+
+    <div class="highlight">
+      💡 Salve o contato para receber atendimento e condições diretamente pelo WhatsApp
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Por que salvar o número?</h3>
+    <p>✔ Atendimento rápido</p>
+    <p>✔ Simulação personalizada</p>
+    <p>✔ Contato direto com a DigieCred</p>
+  </div>
+
+  <div class="box">
+    <h3>Como funciona</h3>
+    <p>Você chama, a gente analisa seu perfil e te mostra as melhores opções de crédito.</p>
+  </div>
+
+</div>
+
+<script>
+function copiarNumero() {
+  const numero = document.getElementById("numero").innerText;
+  navigator.clipboard.writeText(numero);
+  alert("Número copiado! Agora salve como DigieCred e nos chame no WhatsApp 😉");
+}
+</script>
+
+</body>
+</html>
