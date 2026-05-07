@@ -47,6 +47,11 @@
         h2 { font-size: 20px; color: var(--primary); margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 12px; }
         .card { background: var(--card-dark); padding: 22px; border-radius: 24px; border: 1px solid rgba(37, 211, 102, 0.1); margin-bottom: 15px; }
 
+        /* SOBRE O SERVIÇO (AMPLIADO) */
+        .service-details p { font-size: 14px; margin-bottom: 12px; color: #e0e0e0; text-align: justify; }
+        .service-details ul { padding-left: 18px; margin: 0; }
+        .service-details li { font-size: 13px; color: var(--text-dim); margin-bottom: 8px; }
+
         /* DIFERENCIAIS GRID */
         .dif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
         .dif-item { background: var(--card-dark); padding: 15px; text-align: center; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
@@ -54,18 +59,18 @@
         .dif-item b { font-size: 11px; display: block; color: var(--primary); }
         .dif-item i { font-size: 9px; color: var(--text-dim); font-style: normal; }
 
-        /* PASSO A PASSO */
-        .step { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .step-num { width: 30px; height: 30px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
-        .step-text { font-size: 13px; color: #e0e0e0; }
-
-        /* DEPOIMENTOS */
+        /* DEPOIMENTOS (MÍNIMO 6) */
         .testi-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; background: #1d3529; padding: 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .user-pic { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid var(--primary); }
-        .testi-content { font-size: 13.5px; color: #e0e0e0; }
+        .user-pic { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid var(--primary); flex-shrink: 0; }
+        .testi-content { font-size: 13px; color: #e0e0e0; }
         .testi-content b { display: block; color: var(--primary); font-size: 11px; margin-top: 4px; text-transform: uppercase; }
 
-        /* BOTÃO */
+        /* FAQ */
+        .faq-item { margin-bottom: 10px; background: #1d3529; border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        .faq-question { padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 14px; }
+        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: all 0.3s ease; font-size: 13px; color: var(--text-dim); }
+        .faq-item.active .faq-answer { padding: 0 15px 15px 15px; max-height: 200px; }
+
         .cta-button {
             background: var(--primary); color: #000; width: 100%; padding: 20px;
             border: none; border-radius: 18px; font-size: 17px; font-weight: 800;
@@ -93,53 +98,80 @@
     <header class="hero">
         <img src="paulo-pro.jpg" alt="Paulo Henrique" class="profile-img">
         <h1>DigieCred</h1>
-        <p>Facilitando seu acesso ao crédito</p>
-        <button class="cta-button" style="margin-top: 20px;" onclick="abrirFluxo()">INICIAR SIMULAÇÃO AGORA</button>
+        <p>Assessoria Inteligente Infinicred</p>
+        <button class="cta-button" style="margin-top: 20px;" onclick="abrirFluxo()">SIMULAR CRÉDITO AGORA</button>
     </header>
 
     <section id="diferenciais">
         <div class="dif-grid">
             <div class="dif-item"><span>🚫</span><b>TAXA ZERO</b><i>Sem custos antecipados</i></div>
             <div class="dif-item"><span>⚡</span><b>AGILIDADE</b><i>Análise em 30 min</i></div>
-            <div class="dif-item"><span>🛡️</span><b>SEGURANÇA</b><i>Criptografia bancária</i></div>
-            <div class="dif-item"><span>🤝</span><b>PARCERIA</b><i>+50 Bancos ativos</i></div>
+            <div class="dif-item"><span>🛡️</span><b>SEGURANÇA</b><i>Dados protegidos</i></div>
+            <div class="dif-item"><span>🤝</span><b>PARCERIA</b><i>+50 Instituições</i></div>
         </div>
     </section>
 
-    <section id="processo">
-        <h2>Como Garantir seu Crédito</h2>
-        <div class="card">
-            <div class="step"><div class="step-num">1</div><div class="step-text"><b>Simulação:</b> Preencha sua ficha rápida de análise.</div></div>
-            <div class="step"><div class="step-num">2</div><div class="step-text"><b>Aprovação:</b> Buscamos a melhor oferta entre 50 bancos.</div></div>
-            <div class="step"><div class="step-num">3</div><div class="step-text"><b>Depósito:</b> Você fala com o Paulo e o dinheiro cai na conta.</div></div>
+    <section id="sobre-servico">
+        <h2>Como a DigieCred te ajuda?</h2>
+        <div class="card service-details">
+            <p>O trabalho da <b>DigieCred</b> é facilitar o seu acesso ao crédito pessoal de forma segura e transparente. Atuamos como correspondente bancário oficial, conectando você às melhores ofertas do mercado.</p>
+            <p>Não somos um banco, somos uma plataforma online que utiliza tecnologia para buscar a aprovação que você precisa. Nossos principais diferenciais são:</p>
+            <ul>
+                <li><b>Multi-Bancos:</b> Consultamos mais de 50 instituições financeiras simultaneamente.</li>
+                <li><b>Especialização:</b> Temos linhas específicas para Autônomos, CLT e Negativados.</li>
+                <li><b>Resolução 3.954:</b> Operamos estritamente sob as normas do Banco Central.</li>
+                <li><b>Custo Zero:</b> Você nunca paga nada para nossa assessoria analisar seu crédito.</li>
+            </ul>
         </div>
     </section>
 
-    <section id="como-funciona">
-        <h2>Sobre o Serviço</h2>
-        <div class="card">
-            <p style="font-size: 14px; text-align: justify; margin: 0;">
-                O trabalho da <b>DigieCred</b> é facilitar o seu acesso ao crédito pessoal. Atuamos como correspondente bancário oficial, conectando você às melhores instituições financeiras do Brasil sem cobrar taxas de serviço antecipadas.
-            </p>
-        </div>
-    </section>
-
-    <section id="feedback">
-        <h2>Depoimentos</h2>
+    <section id="depoimentos">
+        <h2>O que dizem nossos clientes</h2>
         <div class="testi-item">
             <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-pic">
-            <div class="testi-content">"O Paulo foi muito atencioso. Consegui o crédito para reformar minha oficina em 48h." <b>Marcos Oliveira</b></div>
+            <div class="testi-content">"Atendimento nota dez. O Paulo foi muito claro e o dinheiro caiu na conta como combinado." <b>Marcos Oliveira</b></div>
         </div>
         <div class="testi-item">
             <img src="https://randomuser.me/api/portraits/women/44.jpg" class="user-pic">
-            <div class="testi-content">"Sou autônoma e achei que não conseguiria. A DigieCred resolveu tudo de forma clara." <b>Aline Soares</b></div>
+            <div class="testi-content">"Mesmo sendo autônoma consegui a aprovação. Recomendo pela honestidade." <b>Aline Soares</b></div>
+        </div>
+        <div class="testi-item">
+            <img src="https://randomuser.me/api/portraits/men/46.jpg" class="user-pic">
+            <div class="testi-content">"O que mais gostei foi não pedirem taxas adiantadas. Dá muita segurança." <b>João Pedro</b></div>
+        </div>
+        <div class="testi-item">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="user-pic">
+            <div class="testi-content">"Processo rápido e sem burocracia. Fiz tudo pelo celular e deu tudo certo." <b>Cláudia Regina</b></div>
+        </div>
+        <div class="testi-item">
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" class="user-pic">
+            <div class="testi-content">"Precisava de capital de giro e o suporte do Paulo foi fundamental para minha loja." <b>Roberto Farias</b></div>
+        </div>
+        <div class="testi-item">
+            <img src="https://randomuser.me/api/portraits/women/22.jpg" class="user-pic">
+            <div class="testi-content">"A melhor assessoria que já usei. Educados, rápidos e eficientes na análise." <b>Beatriz Nunes</b></div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Preciso pagar algo antecipado? <span>+</span></div>
+            <div class="faq-answer">Nunca! A DigieCred não cobra nenhuma taxa de serviço ou depósito para liberar seu crédito.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Mesmo negativado eu consigo? <span>+</span></div>
+            <div class="faq-answer">Sim! Temos parceiros com linhas específicas para quem possui restrições no nome.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Quanto tempo demora? <span>+</span></div>
+            <div class="faq-answer">A análise inicial demora cerca de 30 minutos em horário comercial.</div>
         </div>
     </section>
 
     <footer class="footer">
         <p><b>DIGIECRED</b> | CNPJ: 46.599.921/0001-13</p>
         <p>Correspondente Bancário - Resolução 3.954 do Banco Central</p>
-        <p style="margin-top: 10px; opacity: 0.5;">Seus dados estão protegidos conforme a LGPD.</p>
     </footer>
 </div>
 
@@ -177,7 +209,7 @@
             <span class="phone-display">(61) 99627-7039</span>
             <button class="cta-button" onclick="copiarApenas()">CLIQUE PARA COPIAR</button>
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-            <p><b>PASSO 2:</b> Salve o contato como <b>"Paulo DigieCred"</b> e chame no WhatsApp.</p>
+            <p><b>PASSO 2:</b> Salve como <b>"Paulo DigieCred"</b> e chame no WhatsApp.</p>
         </div>
     </div>
 </div>
@@ -190,6 +222,13 @@
         objetivo = obj; 
         document.getElementById('quiz-container').style.display = 'none'; 
         document.getElementById('form-container').style.display = 'block'; 
+    }
+
+    function toggleFaq(element) {
+        const item = element.parentElement;
+        item.classList.toggle('active');
+        const span = element.querySelector('span');
+        span.textContent = item.classList.contains('active') ? '-' : '+';
     }
 
     document.getElementById('cpf').addEventListener('input', e => {
@@ -206,24 +245,16 @@
     form.onsubmit = async (e) => {
         e.preventDefault();
         const d = new FormData(form);
-        
-        // FORMATO DE FICHA PROFISSIONAL PARA PRINT NO E-MAIL
         document.getElementById('full-message').value = `
 📄 FICHA DE ANÁLISE PROFISSIONAL
 ---------------------------------
 OBJETIVO: ${objetivo}
-
-DADOS DO CLIENTE:
 Nome: ${d.get('name')}
 CPF: ${d.get('cpf')}
 Nasc: ${d.get('birthdate')}
-
-FINANCEIRO:
-Renda Mensal: R$ ${d.get('income')}
-Valor Desejado: R$ ${d.get('amount')}
----------------------------------
-        `;
-
+Renda: R$ ${d.get('income')}
+Valor: R$ ${d.get('amount')}
+---------------------------------`;
         document.getElementById('submit-btn').innerHTML = "Enviando...";
         fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .finally(() => {
@@ -235,7 +266,7 @@ Valor Desejado: R$ ${d.get('amount')}
 
     function copiarApenas() {
         navigator.clipboard.writeText("(61) 99627-7039").then(() => {
-            alert("Número copiado! Agora salve na agenda e chame o Paulo Henrique.");
+            alert("Número copiado! Chame o Paulo Henrique no WhatsApp.");
         });
     }
 </script>
