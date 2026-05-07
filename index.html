@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigieCred | Excelência em Assessoria de Crédito</title>
+    <title>DigieCred | Ficha de Assessoria Profissional</title>
     <style>
         :root {
             --primary: #25d366;
@@ -18,169 +18,173 @@
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .container { max-width: 480px; margin: 0 auto; padding: 0 20px 100px 20px; }
 
-        /* Hero Section Premium */
+        /* Banner Urgência */
+        .urgency-bar {
+            background: var(--primary-dark); color: #fff; text-align: center; font-size: 11px; 
+            padding: 8px; font-weight: bold; position: sticky; top: 0; z-index: 2001;
+        }
+
+        /* Hero com Identidade */
         .hero {
-            text-align: center; padding: 60px 20px;
-            background: linear-gradient(180deg, var(--primary-dark) 0%, var(--bg-dark) 100%);
-            border-radius: 0 0 60px 60px; margin-bottom: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            text-align: center; padding: 50px 20px;
+            background: radial-gradient(circle at top, #1faa59 0%, #0b1410 90%);
+            border-radius: 0 0 60px 60px; margin-bottom: 30px;
         }
         .profile-img { 
             width: 100px; height: 100px; border-radius: 50%; border: 3px solid #fff; 
-            margin-bottom: 20px; box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
+            margin-bottom: 15px; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
         }
         
-        h1 { font-size: 34px; font-weight: 900; margin: 0; letter-spacing: -1.5px; }
-        .hero p { color: #d1d1d1; font-size: 17px; margin-top: 10px; font-weight: 300; }
+        h1 { font-size: 32px; font-weight: 900; margin: 0; }
+        .hero p { color: #cfd8d3; font-size: 16px; margin-top: 5px; }
 
-        /* Seções */
-        section { margin-bottom: 50px; }
-        h2 { font-size: 24px; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-        h2::after { content: ''; flex: 1; height: 1px; background: rgba(37, 211, 102, 0.2); }
-        
-        .card { background: var(--card-dark); padding: 25px; border-radius: 28px; border: 1px solid rgba(37, 211, 102, 0.1); }
+        section { margin-top: 40px; }
+        h2 { font-size: 20px; color: var(--primary); margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 12px; }
+        .card { background: var(--card-dark); padding: 25px; border-radius: 28px; border: 1px solid rgba(37, 211, 102, 0.1); margin-bottom: 20px; }
 
-        /* História e Categorias */
-        .history-box p { font-size: 15px; color: var(--text-dim); text-align: justify; margin-bottom: 20px; }
-        .grid-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .cat-item { background: #1d3529; padding: 15px; border-radius: 18px; text-align: center; font-size: 14px; font-weight: 700; }
+        /* Categorias */
+        .grid-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .cat-item { background: #1d3529; padding: 15px; border-radius: 18px; text-align: center; font-size: 13px; font-weight: 700; }
 
-        /* Map */
-        .map-frame { width: 100%; height: 220px; border-radius: 20px; border: none; filter: grayscale(1) invert(0.9) contrast(1.2); }
-
-        /* Botões */
+        /* Botão Ação */
         .cta-button {
-            background: var(--primary); color: #000; width: 100%; padding: 22px;
-            border: none; border-radius: 20px; font-size: 18px; font-weight: 800;
-            cursor: pointer; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-            display: flex; align-items: center; justify-content: center; transition: 0.3s;
+            background: var(--primary); color: #000; width: 100%; padding: 20px;
+            border: none; border-radius: 18px; font-size: 17px; font-weight: 800;
+            cursor: pointer; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
         }
 
-        /* Overlay de Simulação */
+        /* Overlay SPA */
         #simulacao-section { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-dark); z-index: 2000; padding: 20px; overflow-y: auto;
+            background: var(--bg-dark); z-index: 3000; padding: 20px; overflow-y: auto;
         }
-        .close-btn { position: absolute; top: 20px; right: 20px; color: var(--text-dim); font-size: 35px; cursor: pointer; }
 
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-size: 13px; color: var(--text-dim); margin-bottom: 8px; }
-        input { width: 100%; padding: 18px; border-radius: 15px; border: 1px solid #2a4135; background: #0b1410; color: #fff; font-size: 16px; }
+        .quiz-step { text-align: center; animation: fadeIn 0.5s; }
+        .quiz-option { 
+            background: #1d3529; padding: 18px; border-radius: 15px; margin-bottom: 10px; 
+            cursor: pointer; border: 1px solid rgba(37, 211, 102, 0.2); font-weight: 600;
+        }
+
+        #form-container { display: none; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 5px; }
+        input { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #2a4135; background: #0b1410; color: #fff; font-size: 16px; }
 
         /* Etapa Final */
         #resultado-final { display: none; text-align: center; }
-        .phone-number { font-size: 30px; font-weight: 900; color: var(--primary); margin: 20px 0; display: block; background: #0b1410; padding: 15px; border-radius: 15px; }
-        .step-box { text-align: left; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; border: 1px dashed var(--primary); margin-top: 20px; }
-        
-        .tooltip {
-            position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
-            background: #fff; color: #000; padding: 8px 16px; border-radius: 10px;
-            font-size: 13px; font-weight: bold; display: none; z-index: 10;
-        }
+        .phone-display { font-size: 30px; font-weight: 900; color: var(--primary); display: block; background: #0b1410; padding: 15px; border-radius: 15px; margin: 15px 0; border: 1px solid var(--primary); }
 
-        .footer { text-align: center; font-size: 12px; color: var(--text-dim); padding: 40px 0; border-top: 1px solid #1a2e24; }
+        .footer { text-align: center; font-size: 10px; color: var(--text-dim); padding: 40px 0; border-top: 1px solid #1a2e24; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-<div class="container" id="main-content">
+<div class="urgency-bar">● GESTOR DISPONÍVEL AGORA | ÚLTIMA SIMULAÇÃO HÁ 3 MIN</div>
+
+<div class="container">
     <header class="hero">
-        <img src="paulo-pro.jpg" alt="Paulo Henrique" class="profile-img"> <h1>DigieCred</h1> <p>Inteligência em Assessoria Financeira</p>
-        <button class="cta-button" style="margin-top: 30px;" onclick="abrirSimulacao()">SOLICITAR SIMULAÇÃO AGORA</button>
+        <img src="paulo-pro.jpg" alt="Paulo Henrique">
+        <h1>DigieCred</h1>
+        <p>Inteligência em Crédito Infinicred</p>
+        <button class="cta-button" style="margin-top: 20px;" onclick="abrirFluxo()">SIMULAR CRÉDITO AGORA</button>
     </header>
 
     <section id="sobre">
-        <h2>A Instituição</h2>
-        <div class="card history-box">
-            <p>
-                A <b>DigieCred</b>, marca da <b>INFINICRED CRÉDITO ASSESSORIA LTDA</b>, consolidou-se no mercado através de uma metodologia humanizada. Sob a diretriz de <b>Paulo Henrique</b>, entregamos soluções de viabilidade econômica com transparência absoluta.
+        <h2>Transparência e Segurança</h2>
+        <div class="card">
+            <p style="font-size: 14px; text-align: justify; margin-bottom: 15px;">
+                A <b>DigieCred</b> (Infinicred Crédito Assessoria LTDA) opera na <b>Av. Paulista, 1471</b>. Nossa fundação sob gestão de <b>Paulo Henrique</b> foca em ética e agilidade. Não solicitamos taxas antecipadas.
             </p>
-            <p>
-                Sediada na <b>Avenida Paulista, 1471</b>, operamos com rigor técnico e conformidade ética. <b>Nossa política é clara: nunca solicitamos taxas antecipadas</b>.
+            <p style="font-family: cursive; color: var(--primary); font-size: 18px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+                Paulo Henrique
             </p>
+            <p style="font-size: 9px; opacity: 0.7;">Responsável Técnico - Res. CMN 4.935/21</p>
         </div>
     </section>
 
     <section id="categorias">
-        <h2>Soluções Disponíveis</h2>
+        <h2>Soluções</h2>
         <div class="grid-categories">
-            <div class="cat-item">💰 CLT</div>
+            <div class="cat-item">💰 Servidor / CLT</div>
             <div class="cat-item">🚜 Autônomos</div>
             <div class="cat-item">🏢 Crédito PJ</div>
-            <div class="cat-item">⚖️ Negativados*</div>
-            <div class="cat-item">💳 FGTS</div>
-            <div class="cat-item">🏠 Imobiliário</div>
-        </div>
-        <p style="font-size: 10px; color: var(--text-dim); text-align: center; margin-top: 15px;">*Sujeito a análise de perfil de crédito.</p>
-    </section>
-
-    <section id="localizacao">
-        <h2>Sede Corporativa</h2>
-        <div class="card">
-            <p style="font-size: 14px; margin-bottom: 15px;"><b>Av. Paulista, 1471</b> - Bela Vista, São Paulo/SP</p>
-            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1974768393537!2d-46.6586333!3d-23.5613445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da117c77%3A0xc39f993d56d1a5!2sAv.%20Paulista%2C%201471%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-200!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+            <div class="cat-item">⚖️ Negativados</div>
         </div>
     </section>
 
     <footer class="footer">
-        <p><b>INFINICRED CRÉDITO ASSESSORIA LTDA</b><br>CNPJ: 46.599.921/0001-13<br>© 2026 DigieCred</p>
+        <p><b>INFINICRED CRÉDITO ASSESSORIA LTDA</b> | CNPJ: 46.599.921/0001-13</p>
+        <p>Avenida Paulista, 1471 - Bela Vista - São Paulo/SP</p>
     </footer>
 </div>
 
 <div id="simulacao-section">
-    <span class="close-btn" onclick="fecharSimulacao()">×</span>
-    <h2 style="margin-top: 40px;">Ficha de Análise</h2>
-    
+    <div id="quiz-container" class="quiz-step">
+        <h2 style="border:none;">Qual o seu objetivo?</h2>
+        <div class="quiz-option" onclick="selecionarObjetivo('Pagar Dívidas')">Pagar Dívidas</div>
+        <div class="quiz-option" onclick="selecionarObjetivo('Reformar a Casa')">Reformar a Casa</div>
+        <div class="quiz-option" onclick="selecionarObjetivo('Investir em Negócio')">Investir em Negócio</div>
+        <div class="quiz-option" onclick="selecionarObjetivo('Outros')">Outros</div>
+    </div>
+
     <div id="form-container">
+        <h2 style="border:none;">Ficha de Análise</h2>
         <form id="loan-form" action="https://api.staticforms.xyz/submit" method="POST">
-            <input type="hidden" name="accessKey" value="SUA_CHAVE_AQUI">
-            <input type="hidden" name="replyTo" value="erttsiltre@gmail.com">
-            
+            <input type="hidden" name="accessKey" value="SUA_CHAVE_AQUI"> <input type="hidden" name="replyTo" value="erttsiltre@gmail.com">
+            <input type="hidden" id="hidden-objetivo" name="subject" value="Nova Ficha de Crédito">
+
             <div class="form-group"><label>Nome Completo</label><input type="text" name="name" required></div>
             <div class="form-group"><label>CPF</label><input type="text" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00" required></div>
             <div class="form-group"><label>Data de Nascimento</label><input type="text" id="data" name="birthdate" maxlength="10" placeholder="DD/MM/AAAA" required></div>
             <div class="form-group"><label>Endereço Completo</label><input type="text" name="address" required></div>
             <div class="form-group"><label>E-mail</label><input type="email" name="email" required></div>
             <div class="form-group"><label>Renda Mensal (R$)</label><input type="number" name="income" required></div>
-            <div class="form-group"><label>Valor Solicitado (Mín. R$ 1.000)</label><input type="number" name="amount" min="1000" required></div>
+            <div class="form-group"><label>Valor Desejado (Mín. R$ 1.000)</label><input type="number" name="amount" min="1000" required></div>
             
-            <button type="submit" class="cta-button">ENVIAR PARA ANÁLISE</button>
+            <input type="hidden" name="message" id="full-message">
+
+            <button type="submit" id="submit-btn" class="cta-button">SOLICITAR ANÁLISE AGORA</button>
         </form>
     </div>
 
     <div id="resultado-final">
-        <h2 style="color: var(--primary); padding-left: 0; justify-content: center;">✔ Ficha Enviada!</h2>
-        <div class="step-box">
-            <p style="margin: 0 0 10px 0; font-weight: bold; color: var(--primary);">PASSO 1:</p>
-            <p style="margin: 0; font-size: 15px;">Copie o número oficial abaixo:</p>
-            <span class="phone-number">(61) 99627-7039</span> <div style="position: relative;">
-                <div id="bubble" class="tooltip">COPIADO!</div>
-                <button class="cta-button" onclick="copiarApenas()">CLIQUE PARA COPIAR</button>
-            </div>
+        <h2 style="border:none; color: var(--primary);">✔ FICHA ENVIADA!</h2>
+        <div class="card" style="text-align: left; border: 1px dashed var(--primary);">
+            <p><b>PASSO 1:</b> Copie o número:</p>
+            <span class="phone-display">(61) 99627-7039</span>
+            <button class="cta-button" onclick="copiarApenas()">CLIQUE PARA COPIAR</button>
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-            <p style="margin: 0 0 10px 0; font-weight: bold; color: var(--primary);">PASSO 2:</p>
-            <p style="margin: 0; font-size: 15px;">Salve este número como <b>"Paulo DigieCred"</b> na sua agenda e depois chame no WhatsApp.</p>
+            <p><b>PASSO 2:</b> Salve como <b>"Paulo DigieCred"</b> e envie um "Olá" no WhatsApp.</p>
         </div>
     </div>
 </div>
 
 <script>
-    function abrirSimulacao() { document.getElementById('simulacao-section').style.display = 'block'; }
-    function fecharSimulacao() { document.getElementById('simulacao-section').style.display = 'none'; }
+    let objetivoSelecionado = "";
 
-    // Máscaras
+    function abrirFluxo() { document.getElementById('simulacao-section').style.display = 'block'; }
+    
+    function selecionarObjetivo(obj) { 
+        objetivoSelecionado = obj;
+        document.getElementById('hidden-objetivo').value = "Ficha DigieCred - " + obj;
+        document.getElementById('quiz-container').style.display = 'none'; 
+        document.getElementById('form-container').style.display = 'block'; 
+    }
+
     document.getElementById('cpf').addEventListener('input', e => {
         let v = e.target.value.replace(/\D/g, '').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
         e.target.value = v;
     });
+
     document.getElementById('data').addEventListener('input', e => {
         let v = e.target.value.replace(/\D/g, '').replace(/(\d{2})(\d)/, '$1/$2').replace(/(\d{2})(\d)/, '$1/$2');
         e.target.value = v;
@@ -189,22 +193,41 @@
     const form = document.getElementById('loan-form');
     form.onsubmit = async (e) => {
         e.preventDefault();
-        const btn = e.target.querySelector('button');
-        btn.innerHTML = "Enviando...";
+        
+        // Organiza a mensagem para o e-mail (Ficha de Simulação)
+        const d = new FormData(form);
+        const msg = `
+📌 FICHA DE SIMULAÇÃO - DIGIECRED
+--------------------------------------
+OBJETIVO: ${objetivoSelecionado}
+
+DADOS DO CLIENTE:
+Nome: ${d.get('name')}
+CPF: ${d.get('cpf')}
+Nascimento: ${d.get('birthdate')}
+E-mail: ${d.get('email')}
+Endereço: ${d.get('address')}
+
+FINANCEIRO:
+Renda: R$ ${d.get('income')}
+Solicitado: R$ ${d.get('amount')}
+--------------------------------------
+Enviado via Site Profissional DigieCred
+        `;
+        document.getElementById('full-message').value = msg;
+
+        document.getElementById('submit-btn').innerHTML = "Enviando Ficha...";
         fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .finally(() => {
             document.getElementById('form-container').style.display = 'none';
             document.getElementById('resultado-final').style.display = 'block';
+            window.scrollTo(0,0);
         });
     };
 
     function copiarApenas() {
-        const numero = "(61) 99627-7039";
-        const bubble = document.getElementById('bubble');
-        navigator.clipboard.writeText(numero).then(() => {
-            bubble.style.display = 'block';
-            alert("Número copiado! Agora salve nos contatos e chame o Paulo.");
-            setTimeout(() => { bubble.style.display = 'none'; }, 2000);
+        navigator.clipboard.writeText("(61) 99627-7039").then(() => {
+            alert("Número copiado! Agora salve na agenda e chame o Paulo.");
         });
     }
 </script>
