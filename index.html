@@ -26,7 +26,7 @@
 
         .container { max-width: 480px; margin: 0 auto; padding: 0 20px 100px 20px; }
 
-        /* HERO - FOTO GESTOR */
+        /* HERO */
         .hero {
             text-align: center; padding: 50px 20px;
             background: radial-gradient(circle at top, var(--primary-dark) 0%, var(--bg-dark) 100%);
@@ -34,13 +34,9 @@
         }
         
         .profile-img { 
-            width: 100px !important; 
-            height: 100px !important; 
-            border-radius: 50% !important; 
-            border: 3px solid #fff; 
-            margin-bottom: 15px; 
-            object-fit: cover; 
-            display: inline-block;
+            width: 100px !important; height: 100px !important; 
+            border-radius: 50% !important; border: 3px solid #fff; 
+            margin-bottom: 15px; object-fit: cover; display: inline-block;
             box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
         }
         
@@ -51,17 +47,25 @@
         h2 { font-size: 20px; color: var(--primary); margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 12px; }
         .card { background: var(--card-dark); padding: 22px; border-radius: 24px; border: 1px solid rgba(37, 211, 102, 0.1); margin-bottom: 15px; }
 
+        /* DIFERENCIAIS GRID */
+        .dif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .dif-item { background: var(--card-dark); padding: 15px; text-align: center; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .dif-item span { font-size: 24px; display: block; margin-bottom: 5px; }
+        .dif-item b { font-size: 11px; display: block; color: var(--primary); }
+        .dif-item i { font-size: 9px; color: var(--text-dim); font-style: normal; }
+
+        /* PASSO A PASSO */
+        .step { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .step-num { width: 30px; height: 30px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+        .step-text { font-size: 13px; color: #e0e0e0; }
+
         /* DEPOIMENTOS */
-        .testi-item { 
-            background: #1d3529; padding: 15px; border-radius: 20px; 
-            display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
+        .testi-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; background: #1d3529; padding: 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
         .user-pic { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid var(--primary); }
         .testi-content { font-size: 13.5px; color: #e0e0e0; }
         .testi-content b { display: block; color: var(--primary); font-size: 11px; margin-top: 4px; text-transform: uppercase; }
 
-        /* BOTÃO PRINCIPAL */
+        /* BOTÃO */
         .cta-button {
             background: var(--primary); color: #000; width: 100%; padding: 20px;
             border: none; border-radius: 18px; font-size: 17px; font-weight: 800;
@@ -70,18 +74,13 @@
         }
 
         /* OVERLAY SPA */
-        #simulacao-section { 
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-dark); z-index: 3000; padding: 20px; overflow-y: auto;
-        }
+        #simulacao-section { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark); z-index: 3000; padding: 20px; overflow-y: auto; }
         .close-btn { position: absolute; top: 15px; right: 20px; color: var(--text-dim); font-size: 35px; cursor: pointer; }
-
-        .quiz-option { background: #1d3529; padding: 18px; border-radius: 15px; margin-bottom: 10px; text-align: center; font-weight: 600; cursor: pointer; }
+        .quiz-option { background: #1d3529; padding: 18px; border-radius: 15px; margin-bottom: 10px; text-align: center; font-weight: 600; cursor: pointer; border: 1px solid var(--primary-dark); }
         .form-group { margin-bottom: 15px; }
         label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 5px; }
         input { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #2a4135; background: #0b1410; color: #fff; font-size: 16px; }
 
-        /* RESULTADO FINAL */
         #resultado-final { display: none; text-align: center; }
         .phone-display { font-size: 28px; font-weight: 900; color: var(--primary); display: block; background: #0b1410; padding: 15px; border-radius: 15px; margin: 15px 0; border: 1px solid var(--primary); }
 
@@ -98,45 +97,49 @@
         <button class="cta-button" style="margin-top: 20px;" onclick="abrirFluxo()">INICIAR SIMULAÇÃO AGORA</button>
     </header>
 
-    <section id="como-funciona">
-        <h2>Como funciona a DigieCred?</h2>
-        <div class="card">
-            <p style="font-size: 14px; text-align: justify; margin: 0; color: #e0e0e0;">
-                O trabalho da <b>DigieCred</b> é facilitar o seu acesso ao crédito pessoal. Por isso, trabalhamos como correspondente bancário de mais de <b>50 instituições financeiras</b>, buscando as melhores taxas para o seu perfil.
-            </p>
+    <section id="diferenciais">
+        <div class="dif-grid">
+            <div class="dif-item"><span>🚫</span><b>TAXA ZERO</b><i>Sem custos antecipados</i></div>
+            <div class="dif-item"><span>⚡</span><b>AGILIDADE</b><i>Análise em 30 min</i></div>
+            <div class="dif-item"><span>🛡️</span><b>SEGURANÇA</b><i>Criptografia bancária</i></div>
+            <div class="dif-item"><span>🤝</span><b>PARCERIA</b><i>+50 Bancos ativos</i></div>
         </div>
     </section>
 
-    <section id="sobre">
-        <h2>Sobre a Instituição</h2>
+    <section id="processo">
+        <h2>Como Garantir seu Crédito</h2>
         <div class="card">
-            <p style="font-size: 14px; text-align: justify; margin: 0; color: #e0e0e0;">
-                A DigieCred não é uma instituição financeira, somos uma plataforma online que facilita o acesso a produtos financeiros ofertados por empresas credenciadas. Atuamos como correspondente bancário nos termos da <b>Resolução 3.954 do Banco Central do Brasil</b>.
+            <div class="step"><div class="step-num">1</div><div class="step-text"><b>Simulação:</b> Preencha sua ficha rápida de análise.</div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-text"><b>Aprovação:</b> Buscamos a melhor oferta entre 50 bancos.</div></div>
+            <div class="step"><div class="step-num">3</div><div class="step-text"><b>Depósito:</b> Você fala com o Paulo e o dinheiro cai na conta.</div></div>
+        </div>
+    </section>
+
+    <section id="como-funciona">
+        <h2>Sobre o Serviço</h2>
+        <div class="card">
+            <p style="font-size: 14px; text-align: justify; margin: 0;">
+                O trabalho da <b>DigieCred</b> é facilitar o seu acesso ao crédito pessoal. Atuamos como correspondente bancário oficial, conectando você às melhores instituições financeiras do Brasil sem cobrar taxas de serviço antecipadas.
             </p>
         </div>
     </section>
 
     <section id="feedback">
         <h2>Depoimentos</h2>
-        <div class="testimonial-list">
-            <div class="testi-item">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-pic">
-                <div class="testi-content">"O Paulo foi muito atencioso. Consegui o crédito para reformar minha oficina em 48h." <b>Marcos Oliveira</b></div>
-            </div>
-            <div class="testi-item">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="user-pic">
-                <div class="testi-content">"Sou autônoma e achei que não conseguiria. A DigieCred resolveu tudo de forma clara." <b>Aline Soares</b></div>
-            </div>
-            <div class="testi-item">
-                <img src="https://randomuser.me/api/portraits/men/85.jpg" class="user-pic">
-                <div class="testi-content">"Incrível não cobrarem nada adiantado. Isso me deu muita segurança para fechar." <b>João Pedro</b></div>
-            </div>
+        <div class="testi-item">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="user-pic">
+            <div class="testi-content">"O Paulo foi muito atencioso. Consegui o crédito para reformar minha oficina em 48h." <b>Marcos Oliveira</b></div>
+        </div>
+        <div class="testi-item">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="user-pic">
+            <div class="testi-content">"Sou autônoma e achei que não conseguiria. A DigieCred resolveu tudo de forma clara." <b>Aline Soares</b></div>
         </div>
     </section>
 
     <footer class="footer">
         <p><b>DIGIECRED</b> | CNPJ: 46.599.921/0001-13</p>
         <p>Correspondente Bancário - Resolução 3.954 do Banco Central</p>
+        <p style="margin-top: 10px; opacity: 0.5;">Seus dados estão protegidos conforme a LGPD.</p>
     </footer>
 </div>
 
@@ -144,13 +147,13 @@
     <span class="close-btn" onclick="fecharSimulacao()">×</span>
     <div id="quiz-container" style="margin-top: 50px; text-align: center;">
         <h2>Qual seu objetivo hoje?</h2>
-        <div class="quiz-option" onclick="irParaForm('Pagar Dívidas')">Quitar Dívidas</div>
+        <div class="quiz-option" onclick="irParaForm('Quitar Dívidas')">Quitar Dívidas</div>
         <div class="quiz-option" onclick="irParaForm('Investimento / PJ')">Investir em Negócio</div>
         <div class="quiz-option" onclick="irParaForm('Uso Pessoal')">Uso Pessoal / Outros</div>
     </div>
 
     <div id="form-container" style="display: none; margin-top: 30px;">
-        <h2>Ficha de Análise</h2>
+        <h2>Ficha de Análise Profissional</h2>
         <form id="loan-form" action="https://api.staticforms.xyz/submit" method="POST">
             <input type="hidden" name="accessKey" value="SUA_CHAVE_AQUI">
             <input type="hidden" name="replyTo" value="erttsiltre@gmail.com">
@@ -174,7 +177,7 @@
             <span class="phone-display">(61) 99627-7039</span>
             <button class="cta-button" onclick="copiarApenas()">CLIQUE PARA COPIAR</button>
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-            <p><b>PASSO 2:</b> Salve como <b>"Paulo DigieCred"</b> na sua agenda e chame no WhatsApp.</p>
+            <p><b>PASSO 2:</b> Salve o contato como <b>"Paulo DigieCred"</b> e chame no WhatsApp.</p>
         </div>
     </div>
 </div>
@@ -194,12 +197,17 @@
         e.target.value = v;
     });
 
+    document.getElementById('data').addEventListener('input', e => {
+        let v = e.target.value.replace(/\D/g, '').replace(/(\d{2})(\d)/, '$1/$2').replace(/(\d{2})(\d)/, '$1/$2');
+        e.target.value = v;
+    });
+
     const form = document.getElementById('loan-form');
     form.onsubmit = async (e) => {
         e.preventDefault();
         const d = new FormData(form);
         
-        // FICHA FORMATADA PARA O PRINT NO E-MAIL
+        // FORMATO DE FICHA PROFISSIONAL PARA PRINT NO E-MAIL
         document.getElementById('full-message').value = `
 📄 FICHA DE ANÁLISE PROFISSIONAL
 ---------------------------------
@@ -216,7 +224,7 @@ Valor Desejado: R$ ${d.get('amount')}
 ---------------------------------
         `;
 
-        document.getElementById('submit-btn').innerHTML = "Processando...";
+        document.getElementById('submit-btn').innerHTML = "Enviando...";
         fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .finally(() => {
             document.getElementById('form-container').style.display = 'none';
@@ -227,7 +235,7 @@ Valor Desejado: R$ ${d.get('amount')}
 
     function copiarApenas() {
         navigator.clipboard.writeText("(61) 99627-7039").then(() => {
-            alert("Número oficial copiado! Salve na agenda e chame o Paulo Henrique.");
+            alert("Número copiado! Agora salve na agenda e chame o Paulo Henrique.");
         });
     }
 </script>
