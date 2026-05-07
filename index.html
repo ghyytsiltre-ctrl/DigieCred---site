@@ -22,39 +22,46 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.5;
-            scroll-behavior: smooth;
         }
 
         .container { max-width: 480px; margin: 0 auto; padding: 0 20px 100px 20px; }
 
-        /* HERO - AJUSTADO */
+        /* HERO - IMAGEM CORRIGIDA PARA 100PX */
         .hero {
             text-align: center; padding: 40px 20px;
             background: radial-gradient(circle at top, var(--primary-dark) 0%, var(--bg-dark) 100%);
             border-radius: 0 0 50px 50px; margin-bottom: 30px;
         }
+        
+        /* ESTA CLASSE GARANTE QUE A IMAGEM NÃO CRESÇA */
         .profile-img { 
-            width: 100px; height: 100px; border-radius: 50%; border: 3px solid #fff; 
-            margin-bottom: 15px; object-fit: cover; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            width: 100px !important; 
+            height: 100px !important; 
+            border-radius: 50%; 
+            border: 3px solid #fff; 
+            margin-bottom: 15px; 
+            object-fit: cover; 
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
         }
         
-        h1 { font-size: 30px; font-weight: 900; margin: 0; letter-spacing: -1px; }
+        h1 { font-size: 28px; font-weight: 900; margin: 0; letter-spacing: -1px; }
         .hero p { color: #cfd8d3; font-size: 16px; margin-top: 5px; }
 
-        /* SEÇÕES INSTITUCIONAIS */
         section { margin-top: 40px; }
         h2 { font-size: 20px; color: var(--primary); margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 12px; }
+        
         .card { background: var(--card-dark); padding: 22px; border-radius: 24px; border: 1px solid rgba(37, 211, 102, 0.1); margin-bottom: 15px; }
 
         /* DEPOIMENTOS (6 UNIDADES) */
         .testimonial-grid { display: flex; flex-direction: column; gap: 12px; }
-        .testi-card { background: #1d3529; padding: 18px; border-radius: 20px; font-size: 14px; border-left: 3px solid var(--primary); }
-        .testi-card b { display: block; margin-top: 8px; color: var(--primary); font-size: 12px; }
+        .testi-card { background: #1d3529; padding: 18px; border-radius: 20px; font-size: 14px; border-left: 4px solid var(--primary); }
+        .testi-card b { display: block; margin-top: 8px; color: var(--primary); font-size: 12px; text-transform: uppercase; }
 
-        /* MAPA */
+        /* LOCALIZAÇÃO E MAPA */
         .map-frame { width: 100%; height: 200px; border-radius: 20px; border: none; filter: grayscale(1) invert(0.9); margin-top: 10px; }
 
-        /* BOTÕES */
+        /* BOTÃO PRINCIPAL */
         .cta-button {
             background: var(--primary); color: #000; width: 100%; padding: 20px;
             border: none; border-radius: 18px; font-size: 17px; font-weight: 800;
@@ -69,12 +76,12 @@
         }
         .close-btn { position: absolute; top: 15px; right: 20px; color: var(--text-dim); font-size: 35px; cursor: pointer; }
 
-        .quiz-option { background: #1d3529; padding: 18px; border-radius: 15px; margin-bottom: 10px; text-align: center; font-weight: 600; cursor: pointer; }
+        .quiz-option { background: #1d3529; padding: 18px; border-radius: 15px; margin-bottom: 10px; text-align: center; font-weight: 600; cursor: pointer; border: 1px solid rgba(37,211,102,0.1); }
         .form-group { margin-bottom: 15px; }
         label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 5px; }
         input { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #2a4135; background: #0b1410; color: #fff; font-size: 16px; }
 
-        /* ETAPA FINAL */
+        /* RESULTADO FINAL */
         #resultado-final { display: none; text-align: center; }
         .phone-display { font-size: 28px; font-weight: 900; color: var(--primary); display: block; background: #0b1410; padding: 15px; border-radius: 15px; margin: 15px 0; border: 1px solid var(--primary); }
 
@@ -92,16 +99,16 @@
     </header>
 
     <section id="sobre">
-        <h2>Nossa História</h2>
+        <h2>A Instituição</h2>
         <div class="card">
             <p style="font-size: 14px; text-align: justify; margin: 0;">
-                A <b>DigieCred</b>, marca da <b>INFINICRED CRÉDITO ASSESSORIA LTDA</b> (CNPJ: 46.599.921/0001-13), nasceu para simplificar o crédito. Sob a gestão de <b>Paulo Henrique</b>, operamos na <b>Av. Paulista, 1471</b> com transparência total e zero taxas antecipadas.
+                A <b>DigieCred</b>, marca da <b>INFINICRED CRÉDITO ASSESSORIA LTDA</b> (CNPJ: 46.599.921/0001-13), opera na <b>Av. Paulista, 1471</b>. Sob gestão de <b>Paulo Henrique</b>, focamos em ética e velocidade. Nunca solicitamos taxas antecipadas.
             </p>
         </div>
     </section>
 
     <section id="feedback">
-        <h2>Depoimentos</h2>
+        <h2>Depoimentos Reais</h2>
         <div class="testimonial-grid">
             <div class="testi-card">"Sou autônomo e o Paulo me ajudou a conseguir o crédito rápido. Transparência nota 10." <b>Ricardo S.</b></div>
             <div class="testi-card">"Empresa séria. Não cobram nada antes e o atendimento é muito humano." <b>Mariana L.</b></div>
@@ -113,15 +120,15 @@
     </section>
 
     <section id="local">
-        <h2>Onde Estamos</h2>
+        <h2>Localização</h2>
         <div class="card">
-            <p style="font-size: 13px;"><b>Av. Paulista, 1471</b> - Bela Vista - São Paulo/SP</p>
-            <iframe class="map-frame" src="http://googleusercontent.com/maps.google.com/8"></iframe>
+            <p style="font-size: 13px; margin-bottom: 10px;"><b>Av. Paulista, 1471</b> - Bela Vista - São Paulo/SP</p>
+            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197541571221!2d-46.65864192466986!3d-23.56134967880016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59ceb1eb771f%3A0xe54e601666687053!2sAv.%20Paulista%2C%201471%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-200!5e0!3m2!1spt-BR!2sbr!4v1700000000000"></iframe>
         </div>
     </section>
 
     <footer class="footer">
-        <p><b>INFINICRED CRÉDITO ASSESSORIA LTDA</b><br>CNPJ: 46.599.921/0001-13<br>Resolução CMN nº 4.935/21</p>
+        <p><b>INFINICRED CRÉDITO ASSESSORIA LTDA</b><br>CNPJ: 46.599.921/0001-13<br>Sede: Avenida Paulista, 1471 - SP</p>
     </footer>
 </div>
 
@@ -131,12 +138,12 @@
     <div id="quiz-container" style="margin-top: 50px; text-align: center;">
         <h2>Qual seu objetivo?</h2>
         <div class="quiz-option" onclick="irParaForm('Pagar Dívidas')">Pagar Dívidas</div>
-        <div class="quiz-option" onclick="irParaForm('Reforma/Casa')">Reforma ou Casa</div>
-        <div class="quiz-option" onclick="irParaForm('Investimento')">Investimento / CNPJ</div>
-        <div class="quiz-option" onclick="irParaForm('Outros')">Outros Objetivos</div>
+        <div class="quiz-option" onclick="irParaForm('Reforma / Casa')">Reforma ou Casa</div>
+        <div class="quiz-option" onclick="irParaForm('Investimento / PJ')">Investimento / CNPJ</div>
+        <div class="quiz-option" onclick="irParaForm('Outros Objetivos')">Outros Objetivos</div>
     </div>
 
-    <div id="form-container" style="display: none; margin-top: 40px;">
+    <div id="form-container" style="display: none; margin-top: 30px;">
         <h2>Ficha de Análise</h2>
         <form id="loan-form" action="https://api.staticforms.xyz/submit" method="POST">
             <input type="hidden" name="accessKey" value="SUA_CHAVE_AQUI">
@@ -148,34 +155,36 @@
             <div class="form-group"><label>CPF</label><input type="text" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00" required></div>
             <div class="form-group"><label>Data Nascimento</label><input type="text" id="data" name="birthdate" maxlength="10" placeholder="DD/MM/AAAA" required></div>
             <div class="form-group"><label>Endereço Completo</label><input type="text" name="address" required></div>
-            <div class="form-group"><label>Renda Mensal</label><input type="number" name="income" required></div>
-            <div class="form-group"><label>Valor Desejado</label><input type="number" name="amount" min="1000" required></div>
-            <button type="submit" id="submit-btn" class="cta-button">SOLICITAR AGORA</button>
+            <div class="form-group"><label>Renda Mensal (R$)</label><input type="number" name="income" required></div>
+            <div class="form-group"><label>Valor Desejado (R$)</label><input type="number" name="amount" min="1000" required></div>
+            
+            <button type="submit" id="submit-btn" class="cta-button">SOLICITAR ANÁLISE</button>
         </form>
     </div>
 
     <div id="resultado-final">
         <h2 style="color: var(--primary);">✔ Ficha Enviada!</h2>
         <div class="card" style="text-align: left; border: 1px dashed var(--primary);">
-            <p><b>PASSO 1:</b> Copie o número:</p>
+            <p><b>PASSO 1:</b> Copie o número oficial:</p>
             <span class="phone-display">(61) 99627-7039</span>
             <button class="cta-button" onclick="copiarApenas()">CLIQUE PARA COPIAR</button>
             <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-            <p><b>PASSO 2:</b> Salve como <b>"Paulo DigieCred"</b> na sua agenda e chame no WhatsApp.</p>
+            <p><b>PASSO 2:</b> Salve o contato como <b>"Paulo DigieCred"</b> e envie um "Oi" no WhatsApp.</p>
         </div>
     </div>
 </div>
 
 <script>
-    let objetivo = "";
+    let objetivoGeral = "";
     function abrirFluxo() { document.getElementById('simulacao-section').style.display = 'block'; }
     function fecharSimulacao() { document.getElementById('simulacao-section').style.display = 'none'; }
     function irParaForm(obj) { 
-        objetivo = obj; 
+        objetivoGeral = obj; 
         document.getElementById('quiz-container').style.display = 'none'; 
         document.getElementById('form-container').style.display = 'block'; 
     }
 
+    // Máscaras
     document.getElementById('cpf').addEventListener('input', e => {
         let v = e.target.value.replace(/\D/g, '').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
         e.target.value = v;
@@ -189,18 +198,34 @@
     form.onsubmit = async (e) => {
         e.preventDefault();
         const d = new FormData(form);
-        document.getElementById('full-message').value = `FICHA DE SIMULAÇÃO\nObjetivo: ${objetivo}\nNome: ${d.get('name')}\nCPF: ${d.get('cpf')}\nNascimento: ${d.get('birthdate')}\nRenda: R$ ${d.get('income')}\nValor: R$ ${d.get('amount')}`;
+        
+        // FORMATAÇÃO DA FICHA PARA O PRINT NO E-MAIL
+        document.getElementById('full-message').value = `
+📌 FICHA DE SIMULAÇÃO - DIGIECRED
+--------------------------------------
+OBJETIVO: ${objetivoGeral}
+
+NOME: ${d.get('name')}
+CPF: ${d.get('cpf')}
+NASC: ${d.get('birthdate')}
+END: ${d.get('address')}
+RENDA: R$ ${d.get('income')}
+SOLICITADO: R$ ${d.get('amount')}
+--------------------------------------
+        `;
+
         document.getElementById('submit-btn').innerHTML = "Enviando...";
         fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .finally(() => {
             document.getElementById('form-container').style.display = 'none';
             document.getElementById('resultado-final').style.display = 'block';
+            window.scrollTo(0,0);
         });
     };
 
     function copiarApenas() {
         navigator.clipboard.writeText("(61) 99627-7039").then(() => {
-            alert("Número copiado! Salve nos contatos e chame o Paulo.");
+            alert("Número copiado! Agora salve na agenda e chame o Paulo.");
         });
     }
 </script>
